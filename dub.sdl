@@ -1,7 +1,7 @@
-name "bindbc-harfbuzz"
+name "i2d-harfbuzz"
 description "binding to the HarfBuzz font shaping library"
 authors "Grillo del Mal"
-copyright "Copyright © 2024, Grillo del Mal"
+copyright "Copyright © 2024, Grillo del Mal and Inochi2D Project"
 license "MIT"
 dependency "bindbc-loader" version="~>1.1.5"
 

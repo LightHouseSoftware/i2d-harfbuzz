@@ -1,5 +1,5 @@
 /* 
- *  Copyright © 2024, Grillo del Mal.
+ *  Copyright © 2024, Grillo del Mal and Inochi2D Project.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
