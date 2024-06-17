@@ -24,9 +24,9 @@
  * PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
  */
 
-module harfbuzz.hb.style;
+module harfbuzz.types.hb.style;
 
-import harfbuzz.hb.common;
+import harfbuzz.types.hb.common;
 
 nothrow @nogc:
 extern (C):
@@ -69,11 +69,4 @@ enum hb_style_tag_t
 
   /*< private >*/
   _HB_STYLE_TAG_MAX_VALUE	= HB_TAG_MAX_SIGNED /*< skip >*/
-}
-
-__gshared {
-    float
-    function (hb_font_t *font, hb_style_tag_t style_tag)
-        hb_style_get_value;
-
 }

@@ -22,5 +22,6 @@
 
 module harfbuzz;
 
-public import harfbuzz.hb;
+public import harfbuzz.types;
+public import harfbuzz.funcs;
 public import harfbuzz.loader;

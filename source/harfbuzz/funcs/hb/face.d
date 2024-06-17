@@ -26,12 +26,13 @@
  * Red Hat Author(s): Behdad Esfahbod
  */
  
- module harfbuzz.hb.face;
+module harfbuzz.funcs.hb.face;
+import harfbuzz.types.hb.face;
 
-import harfbuzz.hb.common;
-import harfbuzz.hb.blob;
-import harfbuzz.hb.map;
-import harfbuzz.hb.set;
+import harfbuzz.types.hb.common;
+import harfbuzz.types.hb.blob;
+import harfbuzz.types.hb.map;
+import harfbuzz.types.hb.set;
 
 nothrow @nogc:
 extern (C):
@@ -40,46 +41,13 @@ __gshared {
     uint
     function (hb_blob_t *blob)
         hb_face_count;
-}
 
-/*
-* hb_face_t
-*/
-
-/**
-* hb_face_t:
-*
-* Data type for holding font faces.
-*
-**/
-struct hb_face_t;
-
-__gshared {
     hb_face_t *
     function (
             hb_blob_t    *blob,
             uint  index)
         hb_face_create;
-}
 
-/**
-* hb_reference_table_func_t:
-* @face: an #hb_face_t to reference table for
-* @tag: the tag of the table to reference
-* @user_data: User data pointer passed by the caller
-*
-* Callback function for hb_face_create_for_tables().
-*
-* Return value: (transfer full): A pointer to the @tag table within @face
-*
-* Since: 0.9.2
-*/
-
-alias hb_reference_table_func_t = 
-    hb_blob_t * 
-    function(hb_face_t *face, hb_tag_t tag, void *user_data);
-
-__gshared {
     /* calls destroy() when not needing user_data anymore */
     hb_face_t *
     function (

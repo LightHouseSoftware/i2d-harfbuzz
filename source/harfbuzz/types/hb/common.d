@@ -28,7 +28,7 @@
  * Google Author(s): Behdad Esfahbod
  */
  
- module harfbuzz.hb.common;
+module harfbuzz.types.hb.common;
 
 nothrow @nogc:
 extern (C):
@@ -163,19 +163,6 @@ enum HB_TAG_MAX = HB_TAG(0xff,0xff,0xff,0xff);
  */
 enum HB_TAG_MAX_SIGNED = HB_TAG(0x7f,0xff,0xff,0xff);
 
-__gshared {
-
-    /* len=-1 means str is NUL-terminated. */
-    hb_tag_t
-    function (const char *str, int len)
-        hb_tag_from_string;
-
-    /* buf should have 4 bytes. */
-    void
-    function (hb_tag_t tag, char *buf)
-        hb_tag_to_string;
-}
-
 /**
  * hb_direction_t:
  * @HB_DIRECTION_INVALID: Initial, unset direction.
@@ -197,17 +184,6 @@ enum hb_direction_t {
   HB_DIRECTION_RTL,
   HB_DIRECTION_TTB,
   HB_DIRECTION_BTT
-}
-
-__gshared {
-    /* len=-1 means str is NUL-terminated */
-    hb_direction_t
-    function (const char *str, int len)
-        hb_direction_from_string;
-
-    const char *
-    function (hb_direction_t direction)
-        hb_direction_to_string;
 }
 
 /**
@@ -278,15 +254,6 @@ uint HB_DIRECTION_REVERSE(ref uint dir){ return ((dir) ^ 1); }
 struct hb_language_impl_t;
 alias hb_language_t = hb_language_impl_t *;
 
-__gshared {
-    hb_language_t
-    function (const char *str, int len)
-        hb_language_from_string;
-
-    const char *
-    function (hb_language_t language)
-        hb_language_to_string;
-}
 /**
  * HB_LANGUAGE_INVALID:
  *
@@ -296,17 +263,6 @@ __gshared {
  */
 enum HB_LANGUAGE_INVALID = (cast(hb_language_t) 0);
 
-__gshared {
-    hb_language_t
-    function ()
-        hb_language_get_default;
-
-    hb_bool_t
-    function (
-            hb_language_t language,
-            hb_language_t specific)
-        hb_language_matches;
-}
 /**
  * hb_script_t:
  * @HB_SCRIPT_COMMON: `Zyyy`
@@ -720,27 +676,6 @@ enum hb_script_t
 
 }
 
-
-/* Script functions */
-
-__gshared {
-    hb_script_t
-    function (hb_tag_t tag)
-        hb_script_from_iso15924_tag;
-
-    hb_script_t
-    function (const char *str, int len)
-        hb_script_from_string;
-
-    hb_tag_t
-    function (hb_script_t script)
-        hb_script_to_iso15924_tag;
-
-    hb_direction_t
-    function (hb_script_t script)
-        hb_script_get_horizontal_direction;
-}
-
 /* User data */
 
 /**
@@ -807,20 +742,6 @@ struct hb_feature_t {
   uint  end;
 }
 
-__gshared {
-    hb_bool_t
-    function (
-            const char *str, int len,
-            hb_feature_t *feature) 
-        hb_feature_from_string;
-
-    void
-    function (
-            hb_feature_t *feature,
-            char *buf, uint size) 
-        hb_feature_to_string;
-}
-
 /**
  * hb_variation_t:
  * @tag: The #hb_tag_t tag of the variation-axis name
@@ -835,20 +756,6 @@ __gshared {
 struct hb_variation_t {
   hb_tag_t tag;
   float    value;
-}
-
-__gshared {
-    hb_bool_t
-    function (
-            const char *str, int len,
-            hb_variation_t *variation)
-        hb_variation_from_string;
-
-    void
-    function (
-            hb_variation_t *variation,
-            char *buf, uint size)
-        hb_variation_to_string;
 }
 
 /**

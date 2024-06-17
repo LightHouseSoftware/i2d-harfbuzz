@@ -28,11 +28,12 @@
  * Google Author(s): Behdad Esfahbod
  */
 
-module harfbuzz.hb.shape;
+module harfbuzz.funcs.hb.shape;
+//import harfbuzz.types.hb.shape;
 
-import harfbuzz.hb.common;
-import harfbuzz.hb.buffer;
-import harfbuzz.hb.font;
+import harfbuzz.types.hb.common;
+import harfbuzz.types.hb.buffer;
+//import harfbuzz.hb.font;
 
 nothrow @nogc:
 extern (C):

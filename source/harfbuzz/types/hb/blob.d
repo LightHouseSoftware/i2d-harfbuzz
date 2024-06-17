@@ -26,9 +26,9 @@
  * Red Hat Author(s): Behdad Esfahbod
  */
 
-module harfbuzz.hb.blob;
+module harfbuzz.types.hb.blob;
 
-import harfbuzz.hb.common;
+import harfbuzz.types.hb.common;
 
 nothrow @nogc:
 extern (C):
@@ -79,98 +79,3 @@ enum hb_memory_mode_t {
  *
  **/
 struct hb_blob_t;
-
-__gshared {
-    hb_blob_t *
-    function (
-            const char      *data,
-            uint               length,
-            hb_memory_mode_t   mode,
-            void              *user_data,
-            hb_destroy_func_t  destroy)
-        hb_blob_create;
-
-    hb_blob_t *
-    function (
-            const char        *data,
-            uint       length,
-            hb_memory_mode_t   mode,
-            void              *user_data,
-            hb_destroy_func_t  destroy)
-        hb_blob_create_or_fail;
-
-    hb_blob_t *
-    function (const char *file_name)
-        hb_blob_create_from_file;
-
-    hb_blob_t *
-    function (const char *file_name)
-        hb_blob_create_from_file_or_fail;
-
-    /* Always creates with MEMORY_MODE_READONLY.
-    * Even if the parent blob is writable, we don't
-    * want the user of the sub-blob to be able to
-    * modify the parent data as that data may be
-    * shared among multiple sub-blobs.
-    */
-    hb_blob_t *
-    function (
-            hb_blob_t    *parent,
-            uint  offset,
-            uint  length)
-        hb_blob_create_sub_blob;
-
-    hb_blob_t *
-    function (hb_blob_t *blob)
-        hb_blob_copy_writable_or_fail;
-
-    hb_blob_t *
-    function ()
-        hb_blob_get_empty;
-
-    hb_blob_t *
-    function (hb_blob_t *blob)
-        hb_blob_reference;
-
-    void
-    function (hb_blob_t *blob)
-        hb_blob_destroy;
-
-    hb_bool_t
-    function (
-            hb_blob_t          *blob,
-            hb_user_data_key_t *key,
-            void *              data,
-            hb_destroy_func_t   destroy,
-            hb_bool_t           replace)
-        hb_blob_set_user_data;
-
-
-    void *
-    function (
-            const hb_blob_t    *blob,
-            hb_user_data_key_t *key)
-        hb_blob_get_user_data;
-
-
-    void
-    function (hb_blob_t *blob)
-        hb_blob_make_immutable;
-
-    hb_bool_t
-    function (hb_blob_t *blob)
-        hb_blob_is_immutable;
-
-
-    uint
-    function (hb_blob_t *blob)
-        hb_blob_get_length;
-
-    const char *
-    function (hb_blob_t *blob, uint *length)
-        hb_blob_get_data;
-
-    char *
-    function (hb_blob_t *blob, uint *length)
-        hb_blob_get_data_writable;
-}

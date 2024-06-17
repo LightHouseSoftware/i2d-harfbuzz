@@ -26,32 +26,13 @@
  * Google Author(s): Behdad Esfahbod
  */
  
- module harfbuzz.hb.set;
+module harfbuzz.funcs.hb.set;
+import harfbuzz.types.hb.set;
 
-import harfbuzz.hb.common;
+import harfbuzz.types.hb.common;
 
 nothrow @nogc:
 extern (C):
-
-/**
- * HB_SET_VALUE_INVALID:
- *
- * Unset #hb_set_t value.
- *
- * Since: 0.9.21
- */
-enum HB_SET_VALUE_INVALID = HB_CODEPOINT_INVALID;
-
-/**
- * hb_set_t:
- *
- * Data type for holding a set of integers. #hb_set_t's are
- * used to gather and contain glyph IDs, Unicode code
- * points, and various other collections of discrete 
- * values.
- *
- **/
-struct hb_set_t;
 
 __gshared {
     hb_set_t *

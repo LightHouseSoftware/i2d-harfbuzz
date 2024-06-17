@@ -26,12 +26,12 @@
  * Google Author(s): Behdad Esfahbod
  */
 
-module harfbuzz.hb.deprecated_;
+module harfbuzz.types.hb.deprecated_;
 
-import harfbuzz.hb.common;
-import harfbuzz.hb.unicode;
-import harfbuzz.hb.font;
-import harfbuzz.hb.set;
+import harfbuzz.types.hb.common;
+import harfbuzz.types.hb.unicode;
+import harfbuzz.types.hb.font;
+import harfbuzz.types.hb.set;
 
 version(HB_ENABLE_DEPRECATED):
 
@@ -91,14 +91,6 @@ alias hb_font_get_glyph_func_t =
             hb_codepoint_t *glyph,
             void *user_data);
 
-__gshared {
-    void
-    function (
-            hb_font_funcs_t *ffuncs,
-            hb_font_get_glyph_func_t func,
-            void *user_data, hb_destroy_func_t destroy)
-        hb_font_funcs_set_glyph_func;
-}
 /* https://github.com/harfbuzz/harfbuzz/pull/4207 */
 /**
  * HB_UNICODE_COMBINING_CLASS_CCC133:
@@ -138,14 +130,6 @@ alias hb_unicode_eastasian_width_func_t =
  * Since: 0.9.2
  * Deprecated: 2.0.0
  **/
-__gshared {
-    void
-    function (
-            hb_unicode_funcs_t *ufuncs,
-            hb_unicode_eastasian_width_func_t func,
-            void *user_data, hb_destroy_func_t destroy)
-        hb_unicode_funcs_set_eastasian_width_func;
-}
 
 /**
  * hb_unicode_eastasian_width:
@@ -157,13 +141,6 @@ __gshared {
  * Since: 0.9.2
  * Deprecated: 2.0.0
  **/
-__gshared {
-    uint
-    function (
-            hb_unicode_funcs_t *ufuncs,
-            hb_codepoint_t unicode)
-        hb_unicode_eastasian_width;
-}
 
 /**
  * hb_unicode_decompose_compatibility_func_t:
@@ -216,21 +193,6 @@ enum HB_UNICODE_MAX_DECOMPOSITION_LEN = (18+1); /* codepoints */
  * Since: 0.9.2
  * Deprecated: 2.0.0
  **/
-__gshared {
-    void
-    function (
-            hb_unicode_funcs_t *ufuncs,
-            hb_unicode_decompose_compatibility_func_t func,
-            void *user_data, hb_destroy_func_t destroy)
-        hb_unicode_funcs_set_decompose_compatibility_func;
-
-    uint
-    function (
-            hb_unicode_funcs_t *ufuncs,
-            hb_codepoint_t      u,
-            hb_codepoint_t     *decomposed)
-        hb_unicode_decompose_compatibility;
-}
 
 /**
  * hb_font_get_glyph_v_kerning_func_t:
@@ -255,20 +217,6 @@ alias hb_font_get_glyph_v_kerning_func_t = hb_font_get_glyph_kerning_func_t;
  * Since: 0.9.2
  * Deprecated: 2.0.0
  **/
-__gshared {
-    void
-    function (
-            hb_font_funcs_t *ffuncs,
-            hb_font_get_glyph_v_kerning_func_t func,
-            void *user_data, hb_destroy_func_t destroy)
-        hb_font_funcs_set_glyph_v_kerning_func;
-
-    hb_position_t
-    function (
-            hb_font_t *font,
-            hb_codepoint_t top_glyph, hb_codepoint_t bottom_glyph)
-        hb_font_get_glyph_v_kerning;
-}
 
 /**
  * hb_font_get_glyph_shape_func_t:
@@ -305,21 +253,6 @@ alias hb_font_get_glyph_shape_func_t =
  * Since: 4.0.0
  * Deprecated: 7.0.0: Use hb_font_funcs_set_draw_glyph_func() instead
  **/
-__gshared {
-    void
-    function (
-            hb_font_funcs_t *ffuncs,
-            hb_font_get_glyph_shape_func_t func,
-            void *user_data, hb_destroy_func_t destroy)
-        hb_font_funcs_set_glyph_shape_func;
-
-    void
-    function (
-            hb_font_t *font,
-            hb_codepoint_t glyph,
-            hb_draw_funcs_t *dfuncs, void *draw_data)
-        hb_font_get_glyph_shape;
-}
 
 /**
  * HB_AAT_LAYOUT_FEATURE_TYPE_CURISVE_CONNECTION:

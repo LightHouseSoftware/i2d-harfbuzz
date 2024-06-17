@@ -26,30 +26,14 @@
  * Google Author(s): Behdad Esfahbod
  */
  
- module harfbuzz.hb.map;
+module harfbuzz.funcs.hb.map;
+import harfbuzz.types.hb.map;
 
-import harfbuzz.hb.common;
-import harfbuzz.hb.set;
+import harfbuzz.types.hb.common;
+import harfbuzz.types.hb.set;
 
 nothrow @nogc:
 extern (C):
-
-/**
- * HB_MAP_VALUE_INVALID:
- *
- * Unset #hb_map_t value.
- *
- * Since: 1.7.7
- */
-enum HB_MAP_VALUE_INVALID = HB_CODEPOINT_INVALID;
-
-/**
- * hb_map_t:
- *
- * Data type for holding integer-to-integer hash maps.
- *
- **/
-struct hb_map_t;
 
 __gshared {
     hb_map_t *

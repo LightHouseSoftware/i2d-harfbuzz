@@ -26,31 +26,16 @@
  * Google Author(s): Behdad Esfahbod
  */
 
-module harfbuzz.hb.shape_plan;
+module harfbuzz.funcs.hb.shape_plan;
+import harfbuzz.types.hb.shape_plan;
 
-import harfbuzz.hb.common;
-import harfbuzz.hb.font;
-import harfbuzz.hb.face;
-import harfbuzz.hb.buffer;
+import harfbuzz.types.hb.common;
+//import harfbuzz.hb.font;
+import harfbuzz.types.hb.face;
+import harfbuzz.types.hb.buffer;
 
 nothrow @nogc:
 extern (C):
-
-/**
- * hb_shape_plan_t:
- *
- * Data type for holding a shaping plan. 
- *
- * Shape plans contain information about how HarfBuzz will shape a
- * particular text segment, based on the segment's properties and the
- * capabilities in the font face in use.
- *
- * Shape plans can be queried about how shaping will perform, given a set
- * of specific input parameters (script, language, direction, features,
- * etc.).
- *
- **/
-struct hb_shape_plan_t;
 
 __gshared {
 

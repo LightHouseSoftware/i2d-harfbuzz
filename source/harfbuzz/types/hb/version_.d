@@ -26,9 +26,9 @@
  * Google Author(s): Behdad Esfahbod
  */
 
- module harfbuzz.hb.version_;
+ module harfbuzz.types.hb.version_;
 
-import harfbuzz.hb.common;
+import harfbuzz.types.hb.common;
 
 nothrow @nogc:
 extern (C):
@@ -72,24 +72,4 @@ enum HB_VERSION_STRING = "8.4.0";
 bool HB_VERSION_ATLEAST(uint major, uint minor, uint micro) {
     return ((major)*10000+(minor)*100+(micro) <= 
     	HB_VERSION_MAJOR*10000+HB_VERSION_MINOR*100+HB_VERSION_MICRO);
-}
-
-__gshared {
-    void
-    function (
-            uint *major,
-            uint *minor,
-            uint *micro)
-        hb_version;
-
-    const char *
-    function ()
-        hb_version_string;
-
-    hb_bool_t
-    function (
-            uint major,
-            uint minor,
-            uint micro)
-        hb_version_atleast;
 }

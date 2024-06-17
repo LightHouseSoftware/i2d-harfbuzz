@@ -22,7 +22,8 @@
 
 module harfbuzz.loader;
 import bindbc.loader;
-import harfbuzz.hb;
+import harfbuzz.types;
+import harfbuzz.funcs;
 
 enum HarfBuzzSupport {
     noLibrary,
@@ -85,11 +86,11 @@ HarfBuzzSupport loadHarfBuzz(const(char)* libName) {
     loadedVersion = HarfBuzzSupport.badLibrary;
     import std.algorithm.searching : startsWith;
 
-    static foreach (m; __traits(allMembers, harfbuzz.hb)) {
+    static foreach (m; __traits(allMembers, harfbuzz.funcs)) {
         static if (m.startsWith("hb_")) {
             lib.bindSymbol(
-                cast(void**)&__traits(getMember, harfbuzz.hb, m),
-                __traits(getMember, harfbuzz.hb, m).stringof
+                cast(void**)&__traits(getMember, harfbuzz.funcs, m),
+                __traits(getMember, harfbuzz.funcs, m).stringof
             );
             loaded++;
         }
@@ -108,9 +109,9 @@ void unloadHarfBuzz() {
     lib = invalidHandle;
     
     import std.algorithm.searching : startsWith;
-    static foreach (m; __traits(allMembers, harfbuzz.hb)) {
+    static foreach (m; __traits(allMembers, harfbuzz.funcs)) {
         static if (m.startsWith("hb_")) {
-            __traits(getMember, harfbuzz.hb, m) = null;
+            __traits(getMember, harfbuzz.funcs, m) = null;
         }
     }
 }
