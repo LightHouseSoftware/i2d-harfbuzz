@@ -86,7 +86,23 @@ HarfBuzzSupport loadHarfBuzz(const(char)* libName) {
     loadedVersion = HarfBuzzSupport.badLibrary;
     import std.algorithm.searching : startsWith;
 
-    static foreach (m; __traits(allMembers, harfbuzz.funcs)) {
+    static foreach (m; [
+            __traits(allMembers, harfbuzz.funcs.hb.blob),
+            __traits(allMembers, harfbuzz.funcs.hb.buffer),
+            __traits(allMembers, harfbuzz.funcs.hb.common),
+            __traits(allMembers, harfbuzz.funcs.hb.deprecated_),
+            __traits(allMembers, harfbuzz.funcs.hb.draw),
+            __traits(allMembers, harfbuzz.funcs.hb.face),
+            __traits(allMembers, harfbuzz.funcs.hb.font),
+            __traits(allMembers, harfbuzz.funcs.hb.map),
+            __traits(allMembers, harfbuzz.funcs.hb.paint),
+            __traits(allMembers, harfbuzz.funcs.hb.set),
+            __traits(allMembers, harfbuzz.funcs.hb.shape),
+            __traits(allMembers, harfbuzz.funcs.hb.shape_plan),
+            __traits(allMembers, harfbuzz.funcs.hb.style),
+            __traits(allMembers, harfbuzz.funcs.hb.unicode),
+            __traits(allMembers, harfbuzz.funcs.hb.version_),
+            ]) {
         static if (m.startsWith("hb_")) {
             lib.bindSymbol(
                 cast(void**)&__traits(getMember, harfbuzz.funcs, m),
@@ -109,7 +125,23 @@ void unloadHarfBuzz() {
     lib = invalidHandle;
     
     import std.algorithm.searching : startsWith;
-    static foreach (m; __traits(allMembers, harfbuzz.funcs)) {
+    static foreach (m; [
+            __traits(allMembers, harfbuzz.funcs.hb.blob),
+            __traits(allMembers, harfbuzz.funcs.hb.buffer),
+            __traits(allMembers, harfbuzz.funcs.hb.common),
+            __traits(allMembers, harfbuzz.funcs.hb.deprecated_),
+            __traits(allMembers, harfbuzz.funcs.hb.draw),
+            __traits(allMembers, harfbuzz.funcs.hb.face),
+            __traits(allMembers, harfbuzz.funcs.hb.font),
+            __traits(allMembers, harfbuzz.funcs.hb.map),
+            __traits(allMembers, harfbuzz.funcs.hb.paint),
+            __traits(allMembers, harfbuzz.funcs.hb.set),
+            __traits(allMembers, harfbuzz.funcs.hb.shape),
+            __traits(allMembers, harfbuzz.funcs.hb.shape_plan),
+            __traits(allMembers, harfbuzz.funcs.hb.style),
+            __traits(allMembers, harfbuzz.funcs.hb.unicode),
+            __traits(allMembers, harfbuzz.funcs.hb.version_),
+            ]) {
         static if (m.startsWith("hb_")) {
             __traits(getMember, harfbuzz.funcs, m) = null;
         }
