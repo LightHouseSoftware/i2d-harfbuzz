@@ -79,6 +79,7 @@ HarfBuzzSupport loadHarfBuzz() {
 HarfBuzzSupport loadHarfBuzz(const(char)* libName) {
     lib = load(libName);
     if (lib == invalidHandle) {
+        resetErrors();
         return HarfBuzzSupport.noLibrary;
     }
 
