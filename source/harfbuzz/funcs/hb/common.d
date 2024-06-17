@@ -51,7 +51,8 @@ __gshared {
     function (const char *str, int len)
         hb_direction_from_string;
 
-    const char *
+    //FIXME: const char *
+    char *
     function (hb_direction_t direction)
         hb_direction_to_string;
 
@@ -59,7 +60,8 @@ __gshared {
     function (const char *str, int len)
         hb_language_from_string;
 
-    const char *
+    //FIXME: char *
+    char *
     function (hb_language_t language)
         hb_language_to_string;
 

@@ -121,7 +121,8 @@ __gshared {
             uint        num_features)
         hb_shape_plan_execute;
 
-    const char *
+    //FIXME: char *
+    char *
     function (hb_shape_plan_t *shape_plan)
         hb_shape_plan_get_shaper;
 

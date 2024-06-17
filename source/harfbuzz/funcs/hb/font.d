@@ -814,7 +814,8 @@ __gshared {
             uint coords_length)
         hb_font_set_var_coords_design;
 
-    const float *
+    //FIXME: const float *
+    float *
     function (
             hb_font_t *font,
             uint *length)
@@ -827,7 +828,8 @@ __gshared {
             uint coords_length)
         hb_font_set_var_coords_normalized;
 
-    const int *
+    //FIXME: const int *
+    int *
     function (
             hb_font_t *font,
             uint *length)

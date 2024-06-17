@@ -120,7 +120,8 @@ __gshared {
     function (hb_blob_t *blob)
         hb_blob_get_length;
 
-    const char *
+    //FIXME: const char *
+    char *
     function (hb_blob_t *blob, uint *length)
         hb_blob_get_data;
 

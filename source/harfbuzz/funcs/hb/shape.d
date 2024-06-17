@@ -72,7 +72,8 @@ __gshared {
             float              *var_value /* OUT */)
         hb_shape_justify;
 
-    const char **
+    //FIXME: const char **
+    char **
     function ()
         hb_shape_list_shapers;
 }

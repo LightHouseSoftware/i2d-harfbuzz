@@ -42,7 +42,8 @@ __gshared {
             uint *micro)
         hb_version;
 
-    const char *
+    //FIXME: char **
+    char *
     function ()
         hb_version_string;
 

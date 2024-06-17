@@ -358,11 +358,13 @@ __gshared {
     function (const char *str, int len)
         hb_buffer_serialize_format_from_string;
 
-    const char *
+    //FIXME: const char *
+    char *
     function (hb_buffer_serialize_format_t format)
         hb_buffer_serialize_format_to_string;
 
-    const char **
+    //FIXME: const char **
+    char **
     function ()
         hb_buffer_serialize_list_formats;
 
