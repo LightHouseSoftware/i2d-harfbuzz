@@ -1,3 +1,3 @@
-# harfbuzz for D
+# Harfbuzz for D
 
-bindbc binding for harfbuzz, which is a text shaping engine.
+BetterC bindings for harfbuzz, the text shaping library.
