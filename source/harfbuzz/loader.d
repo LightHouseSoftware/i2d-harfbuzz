@@ -65,7 +65,7 @@ HarfBuzzSupport loadHarfBuzz() {
                 "/usr/local/lib/libharfbuzz.so",
             ];
     } else
-        static assert(0, "libcairo is not yet supported on this platform.");
+        static assert(0, "Harfbuzz is not yet supported on this platform.");
 
     HarfBuzzSupport ret;
     foreach (name; libNames) {
